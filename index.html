@@ -1,32 +1,286 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Locriti</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <style type="text/css">
-      body {
-        height: 80vh;
-        background: #595959 url(images/logo.png) no-repeat fixed 50% 50%;
-        font-family: 'Open Sans', sans-serif;
-        font-weight: 400;
-        color: rgb(255, 255, 255);
-      }
-      p {
-        position: absolute;
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Locriti</title>
+  <meta name="description" content="Locriti - Your Newborn Cheat Sheet">
+  <!-- meta NAME="robots" content="NOINDEX, NOFOLLOW" -->
+  <meta name="author" content="Locriti, ltd.">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style type="text/css">
+    /* on phone */
+    .room { margin-top:11%; margin-bottom: 13%; }
+    body { font-family: 'Open Sans'; }
+    .whole-pixel {
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+    .button.button-primary { color: #595959; background-color: #fff; border-color: #595959; border-radius: 0px; }
+    .button.button-primary:hover { background-color: #595959; border-color: #fff; }
+    .button.button-primary:focus { background-color: #595959; border-color: #fff; }
+    .button { color: #fff; background-color: #595959; border-color: #fff; border-radius: 0px; }
+    .button:hover { background-color: #fff; border-color: #595959; }
+    .button:focus { background-color: #fff; border-color: #595959; }
+    a { color: #595959; }
+    a:hover { color: #808080; }
+    .hero {
+      background: #fff url(images/naptime.jpg) no-repeat center;
+      background-size: cover;}
+    .nap-time {
+      background: #eee; }
+    .nap-time-phone {
+      background: #eee url(images/dog_pj_mobile.jpg) no-repeat center;
+      background-size: contain; 
+      min-height: 275px; }
+    .rhythm {
+      background: #fff; }
+    .rhythm-phone {
+      background: #fff url(images/iphone_feed_mobile.jpg) no-repeat center;
+      background-size: contain; 
+      min-height: 275px; }
+    .happy {
+      background: #fff; }
+    .happy-phone { background: #fff url(images/happy_healthy_mobile.jpg) no-repeat center;
+      background-size: contain; 
+      min-height: 275px; }
+    .party { background: #eee; }
+    .party-phone { background: #eee url(images/live_mobile.jpg) no-repeat center;
+      background-size: contain; 
+      min-height: 275px; }
+    .justified-text { text-align: center; }
+    .ltr-text { text-align: center; }
+    h1.white-shadow, h4.white-shadow {
+        text-shadow: 0 0 30px #fff; }
+    .navbar {
+      display: none; }
+    .footer-link { text-transform: uppercase; text-decoration: none; font-size: 1.1rem; }
+    html, body { height: 100%;} #wrap { min-height: 100%;} #main { overflow:auto; padding-bottom: 80px; }  /* must be same height as the footer */
+    /* Larger than iPhone5 */
+    @media (min-width: 359px) {
+      .happy-phone { min-height: 345px; }
+      .nap-time-phone { min-height: 345px; }
+      .rhythm-phone { min-height: 345px; }
+      .party-phone { min-height: 345px; }
+    }
+    /* Larger than phablet */
+    @media (min-width: 639px) {
+      .justified-text { text-align: justify; text-justify: inter-word; }
+      .ltr-text { text-align: left; }
+      .rhythm-phone {
+        display: none; }
+      .rhythm {
+        background: url(images/iphone_feed.png) no-repeat center;
+        margin-top:-1%; margin-left:8%; margin-bottom: -14%;
+        background-size: 100%; min-height: 475px;
+        color: white; }
+      .nap-time-phone {
+        display: none; }
+      .nap-time {
+        background: #595959 url(images/dog_pj.jpg) no-repeat center top;
+        background-size: cover;
+        color: white; }
+      .happy {
+        color: inherit;
+        background: #fff url(images/on_side_facing_hands.jpg) no-repeat top center;
+        background-size: cover; }
+      .happy-phone { display: none; }
+      .white-shadow {
+        text-shadow: 0 0 30px #fff; }
+      .gray-shadow {
+        text-shadow: 0 0 30px #eee; }
+      .party { background: #eee url(images/live.jpg) no-repeat center;
+        background-size: cover; }
+      .party-phone { display: none; }
+    }
+    /* Larger than tablet */
+    @media (min-width: 767px) {
+      .navbar-link.logo { float: left; }
+      .rhythm { background-size: 87%; min-height: 475px; margin-top:3%; margin-bottom:-18%; }
+      .logo {
+        background: #fff url(images/logo.svg) no-repeat center;
+        height: 50px;
+        width: 100px;
+        padding-top: 15px; 
+        margin-left: 35px; }
+      /* Navbar */
+      .no-nav { display: none; }
+      .navbar + .docs-section {
+        border-top-width: 0; }
+      .navbar,
+      .navbar-spacer {
+        display: block;
         width: 100%;
-        bottom: 10vh;
-        text-align: center;
-        margin: 0;
-      }
-    </style>
-  </head>
-  
-  <body>
-    <p>
-      For more, just email us at <a href="http://www.google.com/recaptcha/mailhide/d?k=01wt-mCxoZy7Mp3ynHc6Fpmg==&amp;c=QLIS1bhbvLZswJzRM1oAxqAC9f_rfjkamivP0Xxica0=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01wt-mCxoZy7Mp3ynHc6Fpmg\x3d\x3d\x26c\x3dQLIS1bhbvLZswJzRM1oAxqAC9f_rfjkamivP0Xxica0\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">s...</a>@locriti.com
-      <br>Copyright &copy;<script type="text/javascript">document.write(new Date().getFullYear())</script> Locriti, LTD.<br>All rights reserved.
-    </p>
-  </body>
+        height: 6.5rem;
+        background: #fff;
+        z-index: 99;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee; }
+      .navbar-spacer {
+        display: none; }
+      .navbar > .container {
+        width: 100%; }
+      .navbar-list {
+        list-style: none;
+        margin-bottom: 0; }
+      .navbar-item {
+        position: relative;
+        float: right;
+        margin-bottom: 0; }
+      .navbar-link {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .2rem;
+        margin-right: 35px;
+        text-decoration: none;
+        line-height: 6.5rem;
+        color: #222; }
+      .navbar-link.active {
+        color: #33C3F0; }
+      .has-docked-nav .navbar {
+        position: fixed;
+        top: 0;
+        left: 0; }
+      .has-docked-nav .navbar-spacer {
+        display: block; }
+      /* Re-overiding the width 100% declaration to match size of % based container */
+      .has-docked-nav .navbar > .container {
+        width: 80%; }
+    }
+    @media (min-width: 1023px) {
+      .logo { margin-left: 0; }
+      li:first-child a { margin-right: 0; }
+      .happy { min-height: 500px; }
+      .room { margin-top:16%; margin-bottom: 8%; }
+      .rhythm { background-size: 70%; min-height: 475px; margin-top:4%; margin-bottom:-14%; }
+    }
+    @media (min-width: 1279px) {
+      .rhythm { background-size: 60%; }
+    }
+    @media (min-width: 1919px) {
+      .happy { background-position: center; }
+    }
+  </style>
+</head>
+<body class="whole-pixel"><div id="wrap"><div id="main">
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="navbar-spacer"></div>
+  <nav class="navbar">
+    <div class="container">
+      <div class="row">
+        <div class="three columns"><a class="navbar-link logo" href="/index"></a></div>
+        <div class="nine columns">
+          <ul class="navbar-list">
+            <li class="navbar-item"><a class="navbar-link" href="/shop">Shop</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="/how">How It Works</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="hero u-max-full-width">
+    <div class="container">
+      <div class="row">
+        <div class="six columns" style="margin-top: 25%; margin-bottom: 25%;">
+          <h1 class="white-shadow">Your Newborn Cheat&nbsp;Sheet</h1>
+          <h4 class="white-shadow">New parents &#8212; just like you &#8212; use&nbsp;Locriti to raise calmer, happier&nbsp;babies.</h4>
+          <a class="button button-primary" href="/shop" style="margin-bottom: 8%;">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="six columns" style="margin-top:11%; margin-bottom: 13%;">
+        <h4 class="ltr-text">Your Child&#39;s Natural Rhythm</h4>
+        <div class="rhythm-phone"><img></div>
+        <div class="justified-text">Taking care of a baby can sometimes feel like solving a tricky puzzle. To help, Locriti&#39;s connected anklet monitors your baby&#39;s vitals and activity to form your personalized <b>care-feed</b>. The care-feed is like a to-do list you can come back to If you&#39;re ever unsure of what&#39;s next. <a class="no-nav" href="/how">Learn&nbsp;How</a></div>
+      </div>
+      <div class="six columns">
+        <div class="rhythm"><img></div>
+      </div>
+    </div>
+  </div>
+  <div class="nap-time u-max-full-width">
+    <div class="container">
+      <div class="row">
+        <div class="six offset-by-six columns" style="margin-top:11%; margin-bottom: 13%;">
+          <h4 class="ltr-text">Nap&nbsp;Time for Yourself&#63; Go&nbsp;Right&nbsp;Ahead&#33;</h4>
+          <div class="nap-time-phone"><img></div>
+          <div class="justified-text">Knowing what&#39;s coming lets you plan ahead with certainty. Nap, shower, catch up on missed-calls, get another load of laundry in, or just enjoy a quiet read. We’ve&nbsp;got you covered.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="happy u-max-full-width">
+    <div class="container">
+      <div class="row">
+        <div class="six columns room">
+          <h4 class="ltr-text">Keep Your Child Happy and&nbsp;Healthy</h4>
+          <div class="happy-phone"><img></div>
+          <div class="justified-text">Infants need good sleep to develop properly. When asked, Locriti will rearrange your care-feed to help you time and schedule activity so that your child will get the sleep he needs to keep him growing and healthy. <a class="no-nav" href="/how">Learn&nbsp;How</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="party u-max-full-width">
+    <div class="container">
+      <div class="row">
+        <div class="six offset-by-six columns" style="text-align: center; margin-top:11%; margin-bottom: 13%;">
+          <h4 class="ltr-text gray-shadow">Live a Little&#33;</h4>
+          <div class="party-phone"><img></div>
+          <div class="justified-text gray-shadow">Is it date night&#63; Sitters, and even grandparents can have their own care-feed&#59; simply sync up before you leave, and keep updated when you&#39;re away. Have your friends over&#33; Locriti can even tell you if it gets too loud for your little one.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background: #fff;">
+    <div class="container">
+      <div class="row">
+        <div class="ten columns offset-by-one" style="text-align: center; margin-top:10%; margin-bottom: 8%;">
+          <h4 style="margin-bottom: 4%;">Breathe Again<span id="price">&#46;</span></h4>
+          <a class="button" href="/shop" style="margin-bottom: 15%;">Order Now</a>
+          <div style="color: #808080;">Locriti is not intended to replace you as a caregiver. Locriti is not intended to diagnose, treat, mitigate, cure, or prevent any disease or condition.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><!-- end main --></div><!-- end wrap -->
+  <div style="background: #fff;" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="ten columns offset-by-one" style="text-align: center; font-size: 1.2rem; color: #808080; text-rendering: optimizeLegibility; position: relative; margin-top: -80px; /* negative value of footer height */ height: 80px; clear:both;"><a class="footer-link" href="/how">How It Works</a></li> &#124; <a class="footer-link" href="/shop">Shop</a><br><p style="margin-top: 6px;">Copyright &copy;<script type="text/javascript">document.write(new Date().getFullYear())</script> Locriti, Ltd. All rights reserved.</p></div>
+      </div>
+    </div>
+  </div>
+  <script src="//www.google-analytics.com/cx/api.js?experiment=bv0o5iPfTpGiO9yqDqJS0g"></script>
+  <script>var chosen=cxApi.chooseVariation();/*complete before hitting ga*/</script>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-79389921-1','auto');ga('send','pageview');</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script>var point = [function(){/*baseline*/},function(){$('#price')[0].innerHTML=' for &#36;149';},function(){$('#price')[0].innerHTML=' for &#36;189';},function(){$('#price')[0].innerHTML=' for &#36;249';},function(){$('#price')[0].innerHTML=' for &#36;299';},function(){$('#price')[0].innerHTML=' for &#36;229';}];$(document).ready(point[chosen]);</script>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
 </html>
